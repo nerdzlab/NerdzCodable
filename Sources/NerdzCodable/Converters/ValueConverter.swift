@@ -14,7 +14,7 @@ public struct ConvertedValue<FromType: Codable, ToType, ConverterType: ValueConv
         case canNotMapFromType
     }
     
-    public let value: ToType
+    public var value: ToType
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()

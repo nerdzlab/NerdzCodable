@@ -17,7 +17,7 @@ public struct FormattedDate<ContainerType: DateFormatterContainer>: Codable {
         case canNotDecode
     }
     
-    let date: Date
+    public var date: Date
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
