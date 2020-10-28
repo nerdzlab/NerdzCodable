@@ -18,6 +18,6 @@ let package = Package(
             name: "NerdzCodable"),
         .testTarget(
             name: "NerdzCodableTests",
-            dependencies: ["NerdzCodableDate"]),
+            dependencies: ["NerdzCodable"]),
     ]
 )
