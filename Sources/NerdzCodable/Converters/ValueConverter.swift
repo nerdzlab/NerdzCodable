@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ConvertedValue<FromType: Codable, ToType, ConverterType: ValueConverter<FromType, ToType>>: Codable {
+public class ConvertedValue<FromType: Codable, ToType, ConverterType: ValueConverter<FromType, ToType>>: Codable {
     
     private enum Errors: Error {
         case canNotMapToType
@@ -16,7 +16,7 @@ public struct ConvertedValue<FromType: Codable, ToType, ConverterType: ValueConv
     
     public var value: ToType
     
-    public init(from decoder: Decoder) throws {
+    required public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let rawValue = try container.decode(FromType.self)
         
