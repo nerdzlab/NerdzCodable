@@ -7,17 +7,18 @@
 
 import Foundation
 
-public class PreciseDecimalConverter: ValueConverter<String, Decimal> {
+public class PreciseDecimalConverter: ValueConverter<Double, Decimal> {
     
-    public override class func convert(_ value: String) -> Decimal? {
-        Decimal(string: value)
+    public override class func convert(_ value: Double) -> Decimal? {
+        let string = String(value)
+        return Decimal(string: string)
     }
     
-    public override class func convert(_ value: Decimal) -> String? {
-        value.description
+    public override class func convert(_ value: Decimal) -> Double? {
+        NSDecimalNumber(decimal: value).doubleValue
     }
 }
 
-public class PreciseDecimal: ConvertedValue<String, Decimal, PreciseDecimalConverter> {
+public class PreciseDecimal: ConvertedValue<Double, Decimal, PreciseDecimalConverter> {
     
 }
