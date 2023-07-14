@@ -19,6 +19,10 @@ public struct FormattedDate<ContainerType: DateFormatterContainer>: Codable {
     
     public var date: Date
     
+    public init(date: Date) {
+        self.date = date
+    }
+    
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let string = try container.decode(String.self)
